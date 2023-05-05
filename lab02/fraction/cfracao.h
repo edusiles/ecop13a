@@ -1,5 +1,5 @@
 #ifndef ID_CFRACAO
-#define ID_CFRACAO
+#define ID_CFRACAO 
 
 class CFracao {
    private:
