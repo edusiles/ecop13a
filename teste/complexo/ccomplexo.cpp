@@ -11,8 +11,7 @@ class CComplexo {
 
    public:
       // Construtor:
-      // CComplexo(double = 0, double = 0); // Padrão 0.0 e 0.0
-      CComplexo(double r, double i) : real{r}, imaginary{i} { }
+      CComplexo(double = 0, double = 0); // Padrão 0.0 e 0.0
 
       // Destrutor:
       ~CComplexo() { }
@@ -49,9 +48,13 @@ class CComplexo {
       // Impressão:
       // friend void print(const CComplexo&);
       friend ostream& operator<<(ostream&, const CComplexo&);
+      friend istream& operator>>(istream&, CComplexo&);
 };
 
 #endif
+
+
+CComplexo::CComplexo(double r, double i) : real{r}, imaginary{i} { }
 
 CComplexo operator+(CComplexo& c1, CComplexo& c2) { // Soma
    double x = c1.real + c2.real; // Soma parte real do obj. que chamou a função e do passado como parâmetro
@@ -71,14 +74,25 @@ ostream& operator<<(ostream& out, const CComplexo& c) {
    return out;
 }
 
+istream& operator>>(istream& in, CComplexo& c) {
+   in >> c.real >> c.imaginary;
+
+   return in;
+}
+
 // Programa principal:
 int main() {
-   CComplexo a{10, 0};
-   CComplexo b{10, 15};
+   CComplexo a, b;
 
-   a = a + b; // Notação direta e simples
+   cout << "Entre com o complexo a: ";
+   cin >> a;
+
+   cout << "Entre com o complexo b: ";
+   cin >> b;
+
+   // a = a + b; // Notação direta e simples
    // a = a.operator+(b); // Notação explícita funcional
-   b = b - a; // Como em representação aritmética comum
+   // b = b - a; // Como em representação aritmética comum
 
    cout << "Numeros criados: \n";
    cout << a << " e " << b;
