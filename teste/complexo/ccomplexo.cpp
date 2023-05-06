@@ -37,12 +37,7 @@ class CComplexo {
       double getImaginary() {return imaginary;}
 
       // Sobrecarga de operadores:
-      CComplexo operator+(CComplexo& c) { // Soma
-         double x = this->real + c.getReal(); // Soma parte real do obj. que chamou a função e do passado como parâmetro
-         double y = this->imaginary + c.getImaginary(); // Soma parte imaginária do obj. que chamou a função e do passado como parâmetro
-
-         return CComplexo {x, y};
-      }
+      friend CComplexo operator+(CComplexo& c1, CComplexo& c2);
 
       CComplexo operator-(CComplexo& c) { // Subtração
          double x = this->real - c.getReal(); // Subtrai parte real do obj. que chamou a função e do passado como parâmetro
@@ -55,6 +50,13 @@ class CComplexo {
 };
 
 #endif
+
+CComplexo operator+(CComplexo& c1, CComplexo& c2) { // Soma
+   double x = c1.real + c2.real; // Soma parte real do obj. que chamou a função e do passado como parâmetro
+   double y = c1.imaginary + c2.imaginary; // Soma parte imaginária do obj. que chamou a função e do passado como parâmetro
+
+   return CComplexo {x, y};
+}
 
 // Outros:
 void print(const CComplexo& c) { // Impressão
