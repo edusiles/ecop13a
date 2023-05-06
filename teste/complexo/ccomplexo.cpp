@@ -46,7 +46,9 @@ class CComplexo {
          return CComplexo {x, y};
       }
 
-      friend void print(const CComplexo&);
+      // Impressão:
+      // friend void print(const CComplexo&);
+      friend ostream& operator<<(ostream&, const CComplexo&);
 };
 
 #endif
@@ -59,8 +61,14 @@ CComplexo operator+(CComplexo& c1, CComplexo& c2) { // Soma
 }
 
 // Outros:
-void print(const CComplexo& c) { // Impressão
+/*void print(const CComplexo& c) { // Impressão
    cout << c.real << " + (" << c.imaginary << ")i ";
+}*/
+
+ostream& operator<<(ostream& out, const CComplexo& c) {
+   out << c.real << " + (" << c.imaginary << ")i ";
+
+   return out;
 }
 
 // Programa principal:
@@ -73,9 +81,7 @@ int main() {
    b = b - a; // Como em representação aritmética comum
 
    cout << "Numeros criados: \n";
-   print(a);
-   cout << endl;
-   print(b);
+   cout << a << " e " << b;
 
    return 0;
 }
