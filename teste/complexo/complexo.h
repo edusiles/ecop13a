@@ -28,6 +28,9 @@ class Complexo {
       // Sobrecarga de operadores:
       Complexo operator+(Complexo&);
       Complexo operator-(Complexo&);
+      bool operator!();
+      Complexo& operator++(); // Pré-incremento
+      Complexo operator++(int); // Pós-incremento
 };
 
 #endif 

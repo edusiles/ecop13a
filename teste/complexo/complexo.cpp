@@ -66,3 +66,26 @@ Complexo Complexo::operator-(Complexo& par) {
 
    return Complexo {x, y};
 }
+
+bool Complexo::operator!() {
+   if (real == 0 && imaginary == 0)
+      return true;
+
+   return false;
+}
+
+Complexo& Complexo::operator++() { // Pré-incremento: n1 = ++n2; Onde: n2++; depois n1 = n2;
+   this->real += 1;
+   this->imaginary += 1;
+
+   return *this; // Retorna referência para poder atribuir o obj. a outro
+}
+
+Complexo Complexo::operator++(int value) { // Pós-incremento: n1 = n2++; Onde: n1 = n2; depois n2++;
+   Complexo temp = *this;
+
+   this->real += 1;
+   this->imaginary += 1;
+
+   return temp; // Retorna referência para poder atribuir o obj. a outro
+}
