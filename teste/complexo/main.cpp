@@ -12,11 +12,11 @@ int main() {
    cout << "\nN2 = ";
    n2.print();
 
-   Complexo n3 = n1.add(n2);
+   Complexo n3 = n1 + n2;
    cout << "\nN1 + N2 = ";
    n3.print();
 
-   Complexo n4 = n1.sub(n2);
+   Complexo n4 = n1 - n2;
    cout << "\nN1 - N2 = ";
    n4.print();
 
