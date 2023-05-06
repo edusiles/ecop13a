@@ -22,10 +22,12 @@ class Complexo {
 
       // Outros:
       void print(); // Impressão
-
-      // Sobrecarga de operadores:
       Complexo add(Complexo&); // Soma
       Complexo sub(Complexo&); // Subtração
+
+      // Sobrecarga de operadores:
+      Complexo operator+(Complexo&);
+      Complexo operator-(Complexo&);
 };
 
 #endif 
