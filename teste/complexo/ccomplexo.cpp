@@ -2,6 +2,7 @@
 #define CCOMPLEXO_H
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
@@ -36,6 +37,7 @@ class CComplexo {
       double getImaginary() {return imaginary;}
 
       // Sobrecarga de operadores:
+      operator int();
       friend CComplexo operator+(CComplexo& c1, CComplexo& c2);
 
       CComplexo operator-(CComplexo& c) { // Subtração
@@ -45,8 +47,6 @@ class CComplexo {
          return CComplexo {x, y};
       }
 
-      // Impressão:
-      // friend void print(const CComplexo&);
       friend ostream& operator<<(ostream&, const CComplexo&);
       friend istream& operator>>(istream&, CComplexo&);
 };
@@ -80,6 +80,10 @@ istream& operator>>(istream& in, CComplexo& c) {
    return in;
 }
 
+CComplexo::operator int() {
+   return sqrt(real * real + imaginary * imaginary);
+}
+
 // Programa principal:
 int main() {
    CComplexo a, b;
@@ -95,7 +99,10 @@ int main() {
    // b = b - a; // Como em representação aritmética comum
 
    cout << "Numeros criados: \n";
-   cout << a << " e " << b;
+   cout << a << " e " << b << endl;
+
+   cout << "Convertidos para inteiro: \n";
+   cout << (int)a << " e " << (int)b << endl;
 
    return 0;
 }
