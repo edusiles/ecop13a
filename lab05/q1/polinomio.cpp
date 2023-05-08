@@ -7,6 +7,7 @@ using namespace std;
 Polinomio::Polinomio(int ordem) {  // construtor
    n = ordem;
    coefs = new double[n+1];  // alocar espaço para coeficientes
+
    for (int i = 0; i <= n; i++) {
       coefs[i] = 0;  // inicializar coeficientes com zero
    }
@@ -19,9 +20,11 @@ Polinomio::~Polinomio() {  // destrutor
 // Método para calcular o valor do polinômio em um ponto x
 double Polinomio::calcular(double x) const {
    double resultado = 0;
+   
    for (int i = 0; i <= n; i++) {
       resultado += coefs[i] * pow(x, i);
    }
+
    return resultado;
 }
 
@@ -37,6 +40,7 @@ void Polinomio::imprimir() const {
             cout << " + " << coefs[i] << "x^" << i;
       }
    }
+
    cout << endl;
 }
 
@@ -44,9 +48,11 @@ void Polinomio::imprimir() const {
 Polinomio Polinomio::operator+(const Polinomio& outro) const {
    int maior_ordem = max(n, outro.n);
    Polinomio resultado(maior_ordem);
+
    for (int i = 0; i <= maior_ordem; i++) {
       resultado[i] = coefs[i] + outro[i];
    }
+
    return resultado;
 }
 
@@ -54,9 +60,11 @@ Polinomio Polinomio::operator+(const Polinomio& outro) const {
 Polinomio Polinomio::operator-(const Polinomio& outro) const {
    int maior_ordem = max(n, outro.n);
    Polinomio resultado(maior_ordem);
+
    for (int i = 0; i <= maior_ordem; i++) {
       resultado[i] = coefs[i] - outro[i];
    }
+
    return resultado;
 }
 
@@ -65,12 +73,14 @@ istream& operator>>(istream& is, Polinomio& p) {
    for (int i = 0; i <= p.n; i++) {
       is >> p.coefs[i];
    }
+
    return is;
 }
 
 // Sobrecarga do operador de Impressão(<<)
 ostream& operator<<(ostream& os, const Polinomio& p) {
    bool primeiro = true;
+
    for (int i = p.n; i >= 0; i--) {
       if (p.coefs[i] != 0) {
          if (!primeiro) {
@@ -90,11 +100,12 @@ ostream& operator<<(ostream& os, const Polinomio& p) {
             os << "x^" << i;
          else if (i == 1)
             os << "x";
-         
       }
    }
+
    if (primeiro) {
       os << "0";
    }
+
    return os;
 }
