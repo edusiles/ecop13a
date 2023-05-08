@@ -4,7 +4,7 @@
 #include "politico.h"
 
 class Presidente : public Politico {
-   private:
+   protected:
       string pais; // País
 
    public:

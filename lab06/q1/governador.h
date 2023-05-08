@@ -4,7 +4,7 @@
 #include "presidente.h"
 
 class Governador : public Presidente {
-   private:
+   protected:
       string estado;
 
    public:
