@@ -7,8 +7,6 @@
       "xutility": "cpp",
       "iterator": "cpp",
       "xstring": "cpp",
-      "ostream": "cpp",
-      "limits": "cpp",
-      "istream": "cpp"
+      "ostream": "cpp"
    }
 }
