@@ -22,8 +22,8 @@ class Retangulo : public Forma {
       double getBase() { return base; }
       double getHeight() { return height; }
 
-      void imprimeDados();
-      double area();
+      virtual void imprimeDados();
+      virtual double area();
 };
 
 #endif

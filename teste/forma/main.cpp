@@ -1,4 +1,5 @@
 #include "retangulo.h"
+#include "circulo.h"
 #include <iostream>
 
 using namespace std;
@@ -11,8 +12,12 @@ int main() {
    cout << "\nArea = " << p1->area() << endl;
 
    cout << "\nRetangulo:\n";
-   Retangulo* ret1 = new Retangulo{0, 0, 10, 50};
+   Forma* ret1 = new Retangulo{0, 0, 10, 50};
    ret1->imprimeDados();
+
+   cout << "\nCirculo:\n";
+   Forma* cir1 = new Circulo{0, 0, 10};
+   cir1->imprimeDados();
 
    return 0;
 }
