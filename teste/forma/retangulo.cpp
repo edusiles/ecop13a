@@ -22,7 +22,7 @@ void Retangulo::setAltura(double num) {
 }
 
 void Retangulo::imprimeDados() {
-   Forma::imprimeDados();
+   cout << "Origem: (" << x << ", " << y << ")";
    cout << "\nBase: " << getBase() << "\nHeight: " << getHeight();
    cout << "\nArea: " << area() << endl;
 }

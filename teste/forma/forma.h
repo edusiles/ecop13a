@@ -1,28 +1,20 @@
 #ifndef FORMA_H
 #define FORMA_H
 
-class Forma {
+class Forma { // Abstrata
    protected:
       double x, y;
    
    public:
       // Construtor:
-      Forma(double = 0, double = 0);
+      Forma(double xx = 0, double yy = 0) : x{xx}, y{yy} { }
       
       // Destrutor:
-      ~Forma() { }
-
-      // Setters:
-      void setX(double num) { x = num; }
-      void setY(double num) { y = num; }
-
-      // Getters:
-      double getX() { return x; }
-      double getY() { return y; }
+      virtual ~Forma() { }
 
       // Others:
-      virtual void imprimeDados();
-      virtual double area() { return 0; };
+      virtual void imprimeDados() = 0; // Função Virtual pura
+      virtual double area() = 0; // Função Virtual pura
 };
 
 #endif

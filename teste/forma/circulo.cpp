@@ -21,7 +21,7 @@ double Circulo::getRaio() {
 
 // Others:
 void Circulo::imprimeDados() {
-   Forma::imprimeDados();
+   cout << "Origem: (" << x << ", " << y << ")";
    cout << "\nRaio: " << getRaio() << "\nArea: " << area() << endl;
 }
 

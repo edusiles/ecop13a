@@ -5,19 +5,19 @@
 using namespace std;
 
 int main() {
-   Forma* p1 = new Forma{10.0, 20.0};
+   Forma* vetorFormas[5];
 
-   cout << "\nForma:\n";
-   p1->imprimeDados();
-   cout << "\nArea = " << p1->area() << endl;
+   vetorFormas[0] = new Retangulo {10, 30, 45, 21};
+   vetorFormas[1] = new Retangulo {10, 30, 45, 21};
+   vetorFormas[2] = new Circulo {0, 0, 15.5};
+   vetorFormas[3] = new Circulo {9.0, 0.75, 18};
+   vetorFormas[4] = new Retangulo {0, 0, 10, 10};
 
-   cout << "\nRetangulo:\n";
-   Forma* ret1 = new Retangulo{0, 0, 10, 50};
-   ret1->imprimeDados();
-
-   cout << "\nCirculo:\n";
-   Forma* cir1 = new Circulo{0, 0, 10};
-   cir1->imprimeDados();
+   for (auto x : vetorFormas) {
+      cout << "\nForma: " << endl;
+      x->imprimeDados();
+      cout << "\n\n";
+   }
 
    return 0;
 }
