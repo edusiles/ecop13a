@@ -13,7 +13,7 @@ class Politico {
    public:
       // Construtores:
       Politico(string n, string p) : nome{n}, partido{p} {
-         // cout << "\nConstrutor Politico!\n";
+         cout << "\nConstrutor Politico!\n";
       }
 
       // Destrutores:
