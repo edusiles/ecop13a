@@ -3,9 +3,14 @@
 
 using namespace std;
 
+class DividePorZeroException : public runtime_error {
+   public:
+      DividePorZeroException() : runtime_error("Tentativa de divisao por zero!") { }
+};
+
 int quociente(int n, int d) {
    if (d==0) 
-      throw runtime_error("Tentativa de divisao por zero!");
+      throw DividePorZeroException();
 
    return n/d;
 }
@@ -18,7 +23,7 @@ int main() {
 
    try {
       cout << "Resultado: " << quociente(x, y) << endl;
-   } catch (runtime_error &ex) {
+   } catch (DividePorZeroException &ex) {
       cerr << "\nOcorreu um erro: " << ex.what() << endl;
    }
 
