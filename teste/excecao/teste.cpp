@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdexcept>
+#include <exception>
 
 using namespace std;
 
@@ -24,7 +25,11 @@ int main() {
    try {
       cout << "Resultado: " << quociente(x, y) << endl;
    } catch (DividePorZeroException &ex) {
-      cerr << "\nOcorreu um erro: " << ex.what() << endl;
+      cerr << "\nEntrou em DividePorZero!" << endl;
+   } catch (runtime_error &ex) {
+      cerr << "\nEntrou em runtime_error!" << endl;
+   } catch (exception &ex) {
+      cerr << "\nCapturei uma excecao qualquer!" << endl;
    }
 
    cout << "Programa finalizado!" << endl;
