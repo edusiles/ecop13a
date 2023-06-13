@@ -14,6 +14,7 @@ class Pilha {
 
       bool push(T&); // Recebe e coloca no topo
       bool pop(T&); // Retorna elemento
+      
       bool isEmpty() {
          if (topo == -1) return true;
          return false;

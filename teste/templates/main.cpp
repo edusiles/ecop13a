@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-   Pilha<float> p{50};
+   Pilha<float> p{50}; // Especialização do template
    float v = 0;
 
    cout << "Inserindo itens na pilha: \n";
