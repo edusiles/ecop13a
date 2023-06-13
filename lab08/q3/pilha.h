@@ -12,7 +12,8 @@ class CPilha {
    public:
       CPilha(int memoria);    // construtor com parâmetros
       CPilha();               // construtor sem parâmetros
-      ~CPilha();              // destrutor
+      ~CPilha();
+                    // destrutor
       int pop(int *pop_to);   // puxar dados da pilha
       int push(int push_this);    // empurrar dados para a pilha
       void imprimir() const;  // função para imprimir a pilha

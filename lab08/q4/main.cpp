@@ -13,6 +13,7 @@ class CPilha {
         CPilha(int memoria);
         CPilha();
         ~CPilha();
+
         void imprimir() const;
         void ler();
         void push(int push_this);
@@ -35,12 +36,15 @@ void CPilha::imprimir() const {
     for (int i = 0; i < m_ponteirodaPilha; i++) {
         cout << m_dados[i] << " ";
     }
+
     cout << endl;
 }
 
 void CPilha::ler() {
     int valor;
+
     cout << "Digite o valor para empilhar (ou -1 para parar): ";
+
     while (cin >> valor && valor != -1) {
         try {
             push(valor);
@@ -55,6 +59,7 @@ void CPilha::push(int push_this) {
     if (m_ponteirodaPilha >= m_tamanho) {
         throw overflow_error("Pilha cheia");
     }
+
     m_dados[m_ponteirodaPilha] = push_this;
     m_ponteirodaPilha++;
 }
@@ -63,7 +68,9 @@ int CPilha::pop() {
     if (m_ponteirodaPilha <= 0) {
         throw underflow_error("Pilha vazia");
     }
+
     m_ponteirodaPilha--;
+
     return m_dados[m_ponteirodaPilha];
 }
 
@@ -71,6 +78,7 @@ int main() {
     CPilha pilha(5);
 
     cout << "Empilhando valores..." << endl;
+
     try {
         pilha.push(10);
         pilha.push(20);
@@ -86,6 +94,7 @@ int main() {
     pilha.imprimir();
 
     cout << "Desempilhando valores..." << endl;
+    
     try {
         while (true) {
             int valor = pilha.pop();

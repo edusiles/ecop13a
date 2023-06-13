@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdexcept>
-#include "Polinomio.h"
+#include "polinomio.h"
 
 using namespace std;
 
