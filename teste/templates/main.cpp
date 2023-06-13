@@ -5,8 +5,8 @@
 using namespace std;
 
 int main() {
-   Pilha<int> p{50};
-   int v = 0;
+   Pilha<float> p{50};
+   float v = 0;
 
    cout << "Inserindo itens na pilha: \n";
 
