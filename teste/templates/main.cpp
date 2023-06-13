@@ -1,34 +1,26 @@
 #include <iostream>
 #include <cstdlib>
+#include "pilha.h"
 
 using namespace std;
 
-// função template
-template <typename T>
-
-void print_vetor(T *v, int size) {
-   for (int i = 0; i < 10; i++)
-      cout << v[i] << " "; 
-}
-
 int main() {
-   float vf[10]; // vetor de float
-   int vi[10]; // vetor de inteiro
+   Pilha<int> p{50};
+   int v = 0;
 
-   // preencher os vetores
-   for(int i = 0; i < 10; i++) 
-      vf[i] = (float)(rand() % 100) / 100.0; // Sorteando números
-   
-   for(int i = 0; i < 10; i++) 
-      vi[i] = rand() % 100;
-   
-   // imprimir vetores
-   cout << "\nVetor de float:";
-   print_vetor(vf, 10);
+   cout << "Inserindo itens na pilha: \n";
 
-   cout << "\n Vetor de int: ";
-   print_vetor(vi, 10);
+   while(v != -1) {
+      cin >> v;
+      p.push(v);
+   }
 
+   cout << "Removendo itens... \n";
+
+   while(!(p.isEmpty())) {
+      p.pop(v);
+      cout << v << " ";
+   }
 
    return 0;
 }
