@@ -1,35 +1,35 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <list>
+#include <string>
 
 using namespace std;
 
 int main() {
+   list<string> nomes;
+   list<string>::iterator it;
 
-   vector<int> idades;
-   vector<int>::iterator it;
+   nomes.push_back("John");
+   nomes.push_back("Paul");
+   nomes.push_front("Mary");
 
-   idades.push_back(20); // adiciona elemento no final do vetor
-   idades.push_back(17);
-   idades.push_back(45);
-   idades.push_back(35);
+   it = nomes.begin();
+   nomes.insert(it, "Joseph");
+   ++it;
+   ++it;
 
-   cout << "Tamanho do vetor: " << idades.size() << endl;
-   cout << "Elemento na posicao 3: " << idades.at(3) << endl;
-   idades.pop_back();
+   nomes.insert(it, "Mary");
 
-   cout << "Vetor desordenado: ";
-   for(int i = 0; i < idades.size(); i++) {
-      cout << idades[i] << " ";
-   }
+   cout << "Lista encadeada de nomes: " << endl;
 
-   // Ordenação
-   sort(idades.begin(), idades.end());
+   for (it = nomes.begin(); it != nomes.end(); it++)
+      cout << *it << " ";
 
-   cout << "\nVetor ordenado: ";
-   for (it = idades.begin(); it != idades.end(); ++it) {
-      cout << (*it) << " ";
-   }
+   nomes.remove("Mary");
+
+   cout << "\nLista atualizada de nomes: " << endl;
+
+   for (it = nomes.begin(); it != nomes.end(); it++)
+      cout << *it << " ";
 
    return 0;
 }
