@@ -14,6 +14,10 @@ int main() {
    idades.push_back(45);
    idades.push_back(35);
 
+   cout << "Tamanho do vetor: " << idades.size() << endl;
+   cout << "Elemento na posicao 3: " << idades.at(3) << endl;
+   idades.pop_back();
+
    cout << "Vetor desordenado: ";
    for(int i = 0; i < idades.size(); i++) {
       cout << idades[i] << " ";
