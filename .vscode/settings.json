@@ -9,6 +9,7 @@
       "xstring": "cpp",
       "ostream": "cpp",
       "stdexcept": "cpp",
-      "vector": "cpp"
+      "vector": "cpp",
+      "queue": "cpp"
    }
 }
