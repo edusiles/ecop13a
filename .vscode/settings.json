@@ -8,6 +8,7 @@
       "iterator": "cpp",
       "xstring": "cpp",
       "ostream": "cpp",
-      "stdexcept": "cpp"
+      "stdexcept": "cpp",
+      "vector": "cpp"
    }
 }
