@@ -5,8 +5,8 @@
 using namespace std;
 
 int main() {
-   map<int, string> arvore;
-   map<int, string>::iterator it;
+   multimap<int, string> arvore;
+   multimap<int, string>::iterator it;
 
    pair<int, string> par{9876, "Maria"};
 
