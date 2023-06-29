@@ -4,8 +4,8 @@
 using namespace std;
 
 int main() {
-   set<int> arvore;
-   set<int>::iterator it;
+   multiset<int> arvore;
+   multiset<int>::iterator it;
 
    arvore.insert(30);
    arvore.insert(20);
