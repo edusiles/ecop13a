@@ -1,30 +1,26 @@
 #include <iostream>
-#include <stack>
-#include <queue>
+#include <set>
 
 using namespace std;
 
 int main() {
-   stack<int> pilha;
-   queue<int> fila;
+   set<int> arvore;
+   set<int>::iterator it;
 
-   for (int i = 0; i < 5; i++) {
-      pilha.push(i);
-      fila.push(i);
-   }
+   arvore.insert(30);
+   arvore.insert(20);
+   arvore.insert(10);
+   arvore.insert(10);
+   arvore.insert(40);
+   arvore.insert(50);
+   arvore.erase(20);
 
-   cout << "Pilha: ";
-   while (!pilha.empty()) {
-      cout << pilha.top() << " ";
-      pilha.pop();
-   }
-   cout << endl;
+   cout << "Quantidade de elementos: " << arvore.size() << endl;
+   cout << "Elementos: ";
 
-   cout << "Fila: ";
-   while (!fila.empty()) {
-      cout << fila.front() << " ";
-      fila.pop();
-   }
+   for(it = arvore.begin(); it != arvore.end(); ++it)
+      cout << *it << " ";
+   
    cout << endl;
 
    return 0;
