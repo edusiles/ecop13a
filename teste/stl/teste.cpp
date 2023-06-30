@@ -1,29 +1,23 @@
 #include <iostream>
-#include <map>
-#include <string>
+#include <queue>
 
 using namespace std;
 
 int main() {
-   multimap<int, string> arvore;
-   multimap<int, string>::iterator it;
+   priority_queue<float> prioridades;
 
-   pair<int, string> par{9876, "Maria"};
+   prioridades.push(1.7);
+   prioridades.push(80.0);
+   prioridades.push(65.0);
+   prioridades.push(74.0);
+   prioridades.push(28.9);
+   prioridades.push(15.5);
 
-   arvore.insert(make_pair(1234, "Joao"));
-   arvore.insert(pair<int, string>{5678, "Carlos"});
-   arvore.insert(par);
-   arvore.insert(make_pair(1234, "Karina"));
-   arvore.insert(make_pair(23456, "Adriana"));
-   arvore.erase(5678);
-
-   cout << "Quantidade de elementos: " << arvore.size() << endl;
-   cout << "Elementos: " << endl;
-
-   for(it = arvore.begin(); it != arvore.end(); ++it)
-      cout << it->first << " - " << it->second << endl;
-   
-   cout << endl;
+   cout << "Removendo em ordem de prioridade: " << endl;
+   while(!prioridades.empty()) {
+      cout << prioridades.top() << " ";
+      prioridades.pop();
+   }
 
    return 0;
 }
