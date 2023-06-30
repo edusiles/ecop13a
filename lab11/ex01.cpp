@@ -1,82 +1,76 @@
 /*
-
-      As atividades devem ser feitas em arquivos “.CPP” e “.H”. Os nomes dos arquivos “.CPP”
-   principais de cada exercício estão indicados (ex01.cpp, etc.). Ao final, coloque todos em
-   um mesmo arquivo com extensão “.ZIP”, que você deverá enviar na tarefa “Laboratório
-   11” cadastrada no SIGAA. A entrega valerá nota e presença. Os exercícios da semana
-   têm como objetivo principal fazer com que o aluno pratique o conceito de estruturas de
-   dados não-lineares em STL. Siga as instruções:
-
-
-   Estruturas de dados não lineares em STL
-
    (ex01.cpp) Utilizando a STL, escreva um programa em C++ para a demonstração do
    funcionamento de uma Heap ou Fila de Prioridade, incluída através do cabeçalho <queue>.
    Faça um programa que deve mostrar repetidamente um menu com as opções que podem ser
    escolhidas pelo usuário. Ele deve funcionar de maneira semelhante ao exemplo a seguir:
-
-   TROCAR STACK PARA PRIORITY_QUEUE
-   inserir pilha -> inserir no it
-   OP = MENU();
-
-   ---------------------------
-   Programa de Heap STL
-   ---------------------------
-   1.Insira um elemento na heap
-   2.Remova um elemento da heap
-   3.Tamanho da heap
-   4.Primeiro elemento da heap
-   5.Sair
-   Escolha (1-5): 1 (cin)
-   Entre com o valor a ser inserido: 87 (cin)
-
-   1.Insira um elemento na heap
-   2.Remova um elemento da heap
-   3.Tamanho da heap
-   4.Primeiro elemento da heap
-   5.Sair
-   Escolha (1-5): 1 (cin)
-   Entre com o valor a ser inserido: 92 (cin)
-
-   1.Insira um elemento na heap
-   2.Remova um elemento da heap
-   3.Tamanho da heap
-   4.Primeiro elemento da heap
-   5.Sair
-   Escolha (1-5): 1 (cin)
-   Entre com o valor a ser inserido: 35 (cin)
-
-   1.Insira um elemento na heap
-   2.Remova um elemento da heap
-   3.Tamanho da heap
-   4.Primeiro elemento da heap
-   5.Sair
-   Escolha (1-5): 2 (cin)
-   Elemento 92 removido do topo da heap
-
-   1.Insira um elemento na heap
-   2.Remova um elemento da heap
-   3.Tamanho da heap
-   4.Primeiro elemento da heap
-   5.Sair
-   Escolha (1-5): 3 (cin)
-   Tamanho da heap: 2
-
-   1.Insira um elemento na heap
-   2.Remova um elemento da heap
-   3.Tamanho da heap
-   4.Primeiro elemento da heap
-   5.Sair
-   Escolha (1-5): 4 (cin)
-   Primeiro elemento da heap (topo): 87
-
-   1.Insira um elemento na heap
-   2.Remova um elemento da heap
-   3.Tamanho da heap
-   4.Primeiro elemento da heap
-   5.Sair
-   Escolha (1-5): 5(cin)
-   
-   Programa finalizado!
-
 */
+
+#include <iostream>
+#include <queue>
+
+using namespace std;
+
+int menu() {
+   int op;
+
+   cout << "1. Inserir elemento\n";
+   cout << "2. Remover elemento\n";
+   cout << "3. Tamanho da heap\n";
+   cout << "4. Primeiro elemento\n";
+   cout << "5. Sair\n";
+   cout << "\nEscolha [1 ~ 5]: ";
+   cin >> op;
+
+   return op;
+}
+
+int main() {
+   priority_queue<int> heap;
+   int op = 0, value = 0;
+
+   cout << "\n------------------------\n";
+   cout << "| Programa de Heap STL |\n";
+   cout << "------------------------\n";
+
+   while(op != 5) {
+      cout << endl;
+      op = menu();
+
+      switch(op) {
+         case 1:
+            cout << "\nDigite o valor: ";
+            cin >> value;
+            heap.push(value);
+            cout << "\nValor " << value << " inserido!" << endl;
+            break;
+         case 2:
+            if(!heap.empty()) {
+               cout << "\nElemento " << heap.top() << " removido!" << endl;
+               heap.pop();
+            } else {
+               cout << "\nHeap vazia!" << endl;
+            }
+            break;
+         case 3:
+            cout << "\nTamanho: " << heap.size() << endl;
+            break;
+         case 4:
+            if(!heap.empty()) {
+               cout << "\nPrimeiro elemento da heap: " << heap.top() << endl;
+            } else {
+               cout << "\nHeap vazia!" << endl;
+            }
+            break;
+         case 5:
+            cout << "\nSaindo..." << endl;
+            break;
+         default:
+            cout << "\nValor incorreto! Digite novamente." << endl;
+            break;
+      }
+   }
+
+   cout << "\nPrograma finalizado!\n" << endl;
+
+   return 0;
+}
